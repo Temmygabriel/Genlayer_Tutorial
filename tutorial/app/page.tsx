@@ -776,7 +776,7 @@ useEffect(() => {
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {[
                       { step: "Go to github.com and create a new repository. Give it any name you like." },
-                      { step: "Download the ZIP file Claude gives you and extract it on your computer. You'll see a folder (e.g. 'tutorial') with all the files inside." },
+                      { step: "Download the ZIP file Claude gives you and extract it on your computer. You'll see a folder with all the files inside." },
                       { step: "On your GitHub repo page, click 'Add file' → 'Upload files'." },
                       { step: "Open the extracted folder on your computer. Drag and drop the INNER folder (the one that has 'app', 'package.json' etc inside it) into the GitHub upload area." },
                       { step: "Click 'Commit changes'. GitHub will upload the whole folder structure automatically." },
@@ -790,7 +790,7 @@ useEffect(() => {
                   </div>
                   <div className="card-amber" style={{ marginTop: "0.75rem" }}>
                     <span className="tag tag-amber" style={{ marginBottom: "0.5rem", display: "inline-block" }}>Pro Tip</span>
-                    <p style={{ margin: 0, fontSize: "0.875rem" }}>When you get to Vercel, set the Root Directory to the name of the folder you uploaded (e.g. 'tutorial'). This tells Vercel where to find the files.</p>
+                    <p style={{ margin: 0, fontSize: "0.875rem" }}>When you get to Vercel, set the Root Directory to the name of the folder you uploaded (e.g. 'rugg_or_moon'). This tells Vercel where to find the files.</p>
                   </div>
                 </div>
 
@@ -855,7 +855,7 @@ useEffect(() => {
                 <span style={{ fontSize: "2rem" }}>🎮</span>
                 <h2>See It In Action</h2>
               </div>
-              <p>All four games I built during the GenLayer Playverse Challenge are live right now. Try them — especially Rug or Moon which is the most polished one.</p>
+              <p>All four games I built during the GenLayer Playverse Challenge are live right now. Try them — especially Rug or Moon, which I find most Fun.</p>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12, marginTop: "1.5rem" }}>
                 {[
                   { name: "🪤🚀 Rug or Moon", desc: "The main one. Call fake crypto projects, argue your case, AI Oracle judges. Solo vs AI or multiplayer.", url: "https://ruggormoon-game.vercel.app", featured: true },
