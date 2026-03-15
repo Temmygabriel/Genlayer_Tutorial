@@ -757,7 +757,8 @@ useEffect(() => {
                       "Go to studio.genlayer.com",
                       "Create a new file and paste your contract code",
                       "Make sure the first two lines are the header comment",
-                      "Click Deploy and wait for 'Deployed at 0x...' in the left panel",
+                      "Click the ▶ Run & Debug button in the top right corner of Studio — wait for it to finish",
+                      "Once it runs successfully, click Deploy — wait for 'Deployed at 0x...' in the left panel",
                       "Copy that contract address — you'll need it for the frontend",
                     ].map((step, i) => (
                       <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
@@ -771,20 +772,25 @@ useEffect(() => {
                 {/* GitHub */}
                 <div>
                   <h3>Step 2 — Upload to GitHub</h3>
-                  <p>You don't need Git or a terminal. Do everything through github.com:</p>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  <p>No terminal needed. Here's the simplest way — the same way I do it every time:</p>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {[
-                      "Create a new repository on github.com",
-                      "Click 'Add file' → 'Create new file'",
-                      "Type 'app/page.tsx' as the filename (GitHub creates the folder automatically)",
-                      "Do the same for 'app/layout.tsx', 'next.config.js', 'tsconfig.json', 'package.json'",
-                      "Paste your contract address into the CONTRACT_ADDRESS line in page.tsx",
-                    ].map((step, i) => (
+                      { step: "Go to github.com and create a new repository. Give it any name you like." },
+                      { step: "Download the ZIP file Claude gives you and extract it on your computer. You'll see a folder (e.g. 'tutorial') with all the files inside." },
+                      { step: "On your GitHub repo page, click 'Add file' → 'Upload files'." },
+                      { step: "Open the extracted folder on your computer. Drag and drop the INNER folder (the one that has 'app', 'package.json' etc inside it) into the GitHub upload area." },
+                      { step: "Click 'Commit changes'. GitHub will upload the whole folder structure automatically." },
+                      { step: "Open app/page.tsx in your repo, click the pencil (edit) icon, find the CONTRACT_ADDRESS line and paste your contract address. Commit." },
+                    ].map((item, i) => (
                       <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
                         <div className="step-number" style={{ width: 28, height: 28, fontSize: "0.8rem", flexShrink: 0 }}>{i + 1}</div>
-                        <p style={{ margin: "0.2rem 0 0", color: "#c4b5fd" }}>{step}</p>
+                        <p style={{ margin: "0.2rem 0 0", color: "#c4b5fd" }}>{item.step}</p>
                       </div>
                     ))}
+                  </div>
+                  <div className="card-amber" style={{ marginTop: "0.75rem" }}>
+                    <span className="tag tag-amber" style={{ marginBottom: "0.5rem", display: "inline-block" }}>Pro Tip</span>
+                    <p style={{ margin: 0, fontSize: "0.875rem" }}>When you get to Vercel, set the Root Directory to the name of the folder you uploaded (e.g. 'tutorial'). This tells Vercel where to find the files.</p>
                   </div>
                 </div>
 
@@ -842,6 +848,60 @@ useEffect(() => {
                 ))}
               </div>
             </section>
+
+            {/* Other Projects */}
+            <div style={{ marginBottom: "3rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: "1.5rem" }}>
+                <span style={{ fontSize: "2rem" }}>🎮</span>
+                <h2>See It In Action</h2>
+              </div>
+              <p>All four games I built during the GenLayer Playverse Challenge are live right now. Try them — especially Rug or Moon which is the most polished one.</p>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12, marginTop: "1.5rem" }}>
+                {[
+                  { name: "🪤🚀 Rug or Moon", desc: "The main one. Call fake crypto projects, argue your case, AI Oracle judges. Solo vs AI or multiplayer.", url: "https://ruggormoon-game.vercel.app", featured: true },
+                  { name: "⚖️ The Verdict", desc: "Two players debate absurd AI-generated statements. The AI judge picks the most entertaining argument.", url: "https://theverdictgame.vercel.app", featured: false },
+                  { name: "🔮 Starcast", desc: "Ask the cosmic AI Oracle any question. Get a dramatic on-chain AI reading.", url: "https://starcast-genlayer.vercel.app", featured: false },
+                ].map(p => (
+                  <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "block", background: p.featured ? "rgba(155,106,246,0.12)" : "rgba(255,255,255,0.04)", border: p.featured ? "1px solid rgba(155,106,246,0.35)" : "1px solid rgba(255,255,255,0.08)", borderRadius: 16, padding: "1.25rem", transition: "all 0.2s", cursor: "pointer" }}>
+                    <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: "1rem", color: "white", marginBottom: "0.4rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      {p.name}
+                      {p.featured && <span className="tag tag-purple" style={{ fontSize: "0.65rem" }}>Main</span>}
+                    </div>
+                    <p style={{ fontSize: "0.82rem", color: "#9ca3af", margin: "0 0 0.75rem" }}>{p.desc}</p>
+                    <div style={{ fontSize: "0.78rem", color: "#9B6AF6", fontFamily: "DM Mono" }}>Play now →</div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <hr className="divider" />
+
+            {/* Credits */}
+            <div style={{ marginBottom: "3rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: "1.5rem" }}>
+                <span style={{ fontSize: "2rem" }}>🙏</span>
+                <h2>Credits</h2>
+              </div>
+              <div className="card-purple">
+                <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
+                  <div style={{ fontSize: "2.5rem", flexShrink: 0 }}>👨‍💻</div>
+                  <div>
+                    <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: "1.1rem", color: "white", marginBottom: "0.25rem" }}>
+                      emark <span style={{ fontFamily: "DM Mono", fontSize: "0.8rem", color: "#9ca3af" }}>(@emark0579_40762)</span>
+                    </div>
+                    <p style={{ margin: 0, fontSize: "0.9rem", color: "#c4b5fd" }}>
+                      A huge thank you to <span className="highlight">emark</span> from the GenLayer Discord builders-chat. 
+                      He reviewed my early contracts and provided the key corrections that fixed the fundamental issues — 
+                      the correct import structure, the equivalence principle rules, and the TreeMap patterns. 
+                      Every project I built after that was built on the foundation of his feedback. 
+                      If you're building on GenLayer, the builders-chat community is an incredible resource.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr className="divider" />
 
             {/* Final CTA */}
             <div style={{ background: "linear-gradient(135deg, rgba(227,125,247,0.1), rgba(155,106,246,0.1))", border: "1px solid rgba(155,106,246,0.3)", borderRadius: 20, padding: "2.5rem", textAlign: "center" }}>
